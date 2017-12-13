@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+}
+
+.project-header {
+  width: 80%;
+  margin: auto;
+}
+
+h3 {
+  color: lightseagreen;
+  font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+  text-align: center;
+}
+
+div.project-form {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: 100%;
+  grid-template-areas: "a b";
+}
+
+input.project-input {
+  grid-area: a;
+}
+
+button.project-button {
+  grid-area: b;
+}
+
+div.project-list {
+  display: grid;
+  grid-gap: 1%;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin-top: 5%;
+}
+
+.project-item {
+  width: 180px;
+  margin: 5px auto;  
+  background-color: lightgray;
+  border-radius: 5px;
+  text-align: center;
+}
