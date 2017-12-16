@@ -27,7 +27,9 @@ class Project extends Component {
                 onChange={this.handleChange}
                 value={this.state.text}
                 required />
-              <button className="project-button">
+              <button 
+                type="submit"
+                className="project-button">
                 Add
               </button>
             </div>
