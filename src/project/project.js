@@ -6,9 +6,11 @@ class Project extends Component {
     super(props);
     this.state = {
       items: [],
-      text: ''
+      text: '',
+      handleClick: () => this.handleClick
     };
 
+    this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -35,9 +37,15 @@ class Project extends Component {
             </div>
           </form>
         </div>
-        <ProjectList items={this.state.items}/>
+        <ProjectList items={this.state.items} handleClick={this.handleClick}/>
       </div>
     );
+  }
+
+  handleClick(id) {
+    this.setState(prevState => ({
+      items: prevState.items.filter(el => el.id !== id)
+    }));
   }
 
   handleChange(e) {
@@ -68,7 +76,7 @@ class ProjectList extends React.Component {
     return (
       <div className="project-list">
           {this.props.items.map(item => (
-            <div className="project-item" key={item.id}>
+            <div className="project-item" key={item.id} onClick={() => this.props.handleClick(item.id)}>
               <p key={item.id}>{item.text}</p>
             </div>
           ))}
